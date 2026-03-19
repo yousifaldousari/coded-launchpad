@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Navigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, PartyPopper } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -20,29 +20,61 @@ const accentBgMap: Record<TrackId, string> = {
   datascience: "bg-track-data",
 };
 
+const STEP_STORAGE_KEY = "coded-onboarding-step";
+
+function getSavedStep(trackId: TrackId, stepCount: number) {
+  try {
+    const raw = localStorage.getItem(STEP_STORAGE_KEY);
+    const parsed = raw ? (JSON.parse(raw) as Record<string, number>) : {};
+    const savedStep = parsed[trackId];
+
+    if (typeof savedStep === "number") {
+      return Math.min(Math.max(savedStep, 0), stepCount - 1);
+    }
+  } catch {}
+
+  return 0;
+}
+
 export default function TrackChecklist() {
   const { trackId } = useParams<{ trackId: string }>();
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState(0);
-  const [helpOpen, setHelpOpen] = useState(false);
-  const [showReady, setShowReady] = useState(false);
-
+  const trackExists = tracks.some((t) => t.id === trackId);
   const safeTrackId = (tracks.find((t) => t.id === trackId)?.id ?? "fullstack") as TrackId;
   const track = getTrack(safeTrackId);
   const { checked, toggle, percentage, allDone, isStepComplete, steps } =
     useChecklistProgress(safeTrackId);
 
+  const [currentStep, setCurrentStep] = useState(() => getSavedStep(safeTrackId, steps.length));
+  const [helpOpen, setHelpOpen] = useState(false);
+  const [showReady, setShowReady] = useState(false);
+  const hasShownReadyRef = useRef(false);
+
   const step = steps[currentStep];
   const isLast = currentStep === steps.length - 1;
 
-  if (!tracks.find((t) => t.id === trackId)) return <Navigate to="/" replace />;
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STEP_STORAGE_KEY);
+      const parsed = raw ? (JSON.parse(raw) as Record<string, number>) : {};
+      parsed[safeTrackId] = currentStep;
+      localStorage.setItem(STEP_STORAGE_KEY, JSON.stringify(parsed));
+    } catch {}
+  }, [currentStep, safeTrackId]);
 
   useEffect(() => {
-    if (allDone && !showReady) {
+    if (allDone && !hasShownReadyRef.current) {
+      hasShownReadyRef.current = true;
       setShowReady(true);
       confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
     }
-  }, [allDone, showReady]);
+
+    if (!allDone) {
+      hasShownReadyRef.current = false;
+    }
+  }, [allDone]);
+
+  if (!trackExists) return <Navigate to="/" replace />;
 
   if (showReady) {
     return (
@@ -71,7 +103,10 @@ export default function TrackChecklist() {
 
           <div className="mt-8 flex flex-col items-center gap-2">
             <button
-              onClick={() => { setShowReady(false); setCurrentStep(steps.length - 1); }}
+              onClick={() => {
+                setCurrentStep(steps.length - 1);
+                setShowReady(false);
+              }}
               className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
             >
               ← Back to checklist
@@ -90,7 +125,6 @@ export default function TrackChecklist() {
 
   return (
     <div className={`min-h-screen ${trackClassMap[safeTrackId]}`}>
-      {/* Header */}
       <div className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-3">
           <button onClick={() => navigate("/")} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
@@ -100,7 +134,6 @@ export default function TrackChecklist() {
             {track.emoji} {track.name}
           </div>
         </div>
-        {/* Progress bar */}
         <div className="h-1 bg-muted">
           <motion.div
             className={`h-full ${accentBgMap[safeTrackId]}`}
@@ -111,9 +144,7 @@ export default function TrackChecklist() {
         </div>
       </div>
 
-      {/* Content */}
       <div className="mx-auto max-w-2xl px-4 py-8">
-        {/* Step indicator */}
         <div className="mb-2 flex items-center justify-between">
           <span className="text-sm font-medium text-muted-foreground">
             Step {currentStep + 1} of {steps.length}
@@ -121,7 +152,6 @@ export default function TrackChecklist() {
           <span className="text-sm font-bold text-foreground">{percentage}% complete</span>
         </div>
 
-        {/* Step dots */}
         <div className="mb-8 flex gap-2">
           {steps.map((_, i) => (
             <button
@@ -149,16 +179,14 @@ export default function TrackChecklist() {
             <h2 className="font-display text-3xl font-bold text-foreground">{step.title}</h2>
             <p className="mt-1 text-muted-foreground">{step.subtitle}</p>
 
-            {/* Info content (campus essentials) */}
             {step.infoContent && (
-              <div className="mt-6 rounded-xl border border-border bg-card p-4 space-y-2">
+              <div className="mt-6 space-y-2 rounded-xl border border-border bg-card p-4">
                 {step.infoContent.lines.map((line, i) => (
                   <p key={i} className="text-sm text-foreground">{line}</p>
                 ))}
               </div>
             )}
 
-            {/* Checklist */}
             <div className="mt-6 space-y-3">
               {step.items.map((item, i) => (
                 <motion.div
@@ -179,9 +207,8 @@ export default function TrackChecklist() {
               ))}
             </div>
 
-            {/* Help section */}
             {step.helpSection && (
-              <div className="mt-6 rounded-xl border border-border bg-card overflow-hidden">
+              <div className="mt-6 overflow-hidden rounded-xl border border-border bg-card">
                 <button
                   onClick={() => setHelpOpen(!helpOpen)}
                   className="flex w-full items-center justify-between p-4 text-sm font-medium text-foreground"
@@ -209,7 +236,6 @@ export default function TrackChecklist() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation */}
         <div className="mt-10 flex items-center justify-between">
           <button
             onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}
