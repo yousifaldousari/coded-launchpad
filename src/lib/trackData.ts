@@ -54,7 +54,7 @@ export const tracks: Track[] = [
     bgClass: "bg-track-fullstack",
     borderClass: "border-track-fullstack",
     readyMessage: "Time to build real systems.",
-    buttonLabel: "Full-Stack & AI Checklist",
+    buttonLabel: "FS Checklist",
   },
   {
     id: "datascience",
