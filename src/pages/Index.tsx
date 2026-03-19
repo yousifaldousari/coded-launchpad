@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { tracks } from "@/lib/trackData";
 import TrackCard from "@/components/TrackCard";
+import codedLogo from "@/assets/CODED_logo_navy_blue.png";
 
 const STORAGE_KEY = "coded-onboarding";
 
@@ -26,9 +27,10 @@ export default function Index() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center"
+        className="flex flex-col items-center text-center"
       >
-        <h1 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+        <img src={codedLogo} alt="CODED" className="mb-6 h-12 object-contain" />
+        <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
           Welcome to CODED <span className="inline-block animate-[wave_1.5s_ease-in-out_infinite]">👋</span>
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
