@@ -27,15 +27,15 @@ export default function TrackChecklist() {
   const [helpOpen, setHelpOpen] = useState(false);
   const [showReady, setShowReady] = useState(false);
 
-  const validTrack = tracks.find((t) => t.id === trackId);
-  if (!validTrack) return <Navigate to="/" replace />;
-
-  const track = getTrack(trackId as TrackId);
+  const safeTrackId = (tracks.find((t) => t.id === trackId)?.id ?? "fullstack") as TrackId;
+  const track = getTrack(safeTrackId);
   const { checked, toggle, percentage, allDone, isStepComplete, steps } =
-    useChecklistProgress(trackId as TrackId);
+    useChecklistProgress(safeTrackId);
 
   const step = steps[currentStep];
   const isLast = currentStep === steps.length - 1;
+
+  if (!tracks.find((t) => t.id === trackId)) return <Navigate to="/" replace />;
 
   useEffect(() => {
     if (allDone && !showReady) {
