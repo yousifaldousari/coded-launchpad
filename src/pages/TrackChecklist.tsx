@@ -46,7 +46,7 @@ export default function TrackChecklist() {
 
   if (showReady) {
     return (
-      <div className={`flex min-h-screen flex-col items-center justify-center px-4 ${trackClassMap[trackId as TrackId]}`}>
+      <div className={`flex min-h-screen flex-col items-center justify-center px-4 ${trackClassMap[safeTrackId]}`}>
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -60,7 +60,7 @@ export default function TrackChecklist() {
           <div className="mt-8 space-y-3">
             <a
               href="#"
-              className={`block rounded-xl ${accentBgMap[trackId as TrackId]} px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
+              className={`block rounded-xl ${accentBgMap[safeTrackId]} px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
             >
               Open Trainee Presence Guide →
             </a>
@@ -81,21 +81,21 @@ export default function TrackChecklist() {
   }
 
   return (
-    <div className={`min-h-screen ${trackClassMap[trackId as TrackId]}`}>
+    <div className={`min-h-screen ${trackClassMap[safeTrackId]}`}>
       {/* Header */}
       <div className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-3">
           <button onClick={() => navigate("/")} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4" /> Change track
           </button>
-          <div className={`rounded-full ${accentBgMap[trackId as TrackId]} px-3 py-1 text-xs font-semibold text-white`}>
+          <div className={`rounded-full ${accentBgMap[safeTrackId]} px-3 py-1 text-xs font-semibold text-white`}>
             {track.emoji} {track.name}
           </div>
         </div>
         {/* Progress bar */}
         <div className="h-1 bg-muted">
           <motion.div
-            className={`h-full ${accentBgMap[trackId as TrackId]}`}
+            className={`h-full ${accentBgMap[safeTrackId]}`}
             initial={{ width: 0 }}
             animate={{ width: `${percentage}%` }}
             transition={{ duration: 0.4 }}
@@ -121,9 +121,9 @@ export default function TrackChecklist() {
               onClick={() => setCurrentStep(i)}
               className={`h-2 flex-1 rounded-full transition-colors ${
                 i === currentStep
-                  ? accentBgMap[trackId as TrackId]
+                  ? accentBgMap[safeTrackId]
                   : isStepComplete(i)
-                    ? `${accentBgMap[trackId as TrackId]} opacity-40`
+                    ? `${accentBgMap[safeTrackId]} opacity-40`
                     : "bg-muted"
               }`}
             />
@@ -165,7 +165,7 @@ export default function TrackChecklist() {
                     checked={!!checked[item.id]}
                     optional={item.optional}
                     onToggle={toggle}
-                    accentBg={accentBgMap[trackId as TrackId]}
+                    accentBg={accentBgMap[safeTrackId]}
                   />
                 </motion.div>
               ))}
@@ -219,7 +219,7 @@ export default function TrackChecklist() {
                 setCurrentStep((s) => Math.min(steps.length - 1, s + 1));
               }
             }}
-            className={`flex items-center gap-1 rounded-xl ${accentBgMap[trackId as TrackId]} px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
+            className={`flex items-center gap-1 rounded-xl ${accentBgMap[safeTrackId]} px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
           >
             {isLast ? (allDone ? "Finish 🎉" : "Next") : "Next"}
             <ArrowRight className="h-4 w-4" />
