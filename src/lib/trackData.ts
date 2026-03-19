@@ -56,7 +56,7 @@ export const tracks: Track[] = [
   },
   {
     id: "datascience",
-    name: "Data Scientist",
+    name: "AI & Data Science Bootcamp",
     emoji: "📊",
     icon: "datascience",
     tagline: "Analyze. Predict. Transform.",
