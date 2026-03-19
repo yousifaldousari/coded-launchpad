@@ -31,10 +31,11 @@ export interface Track {
 export const tracks: Track[] = [
   {
     id: "cybersecurity",
-    name: "Cybersecurity Specialist",
+    name: "Cybersecurity Bootcamp",
     emoji: "🔐",
     icon: "cyber",
     tagline: "Defend. Detect. Dominate.",
+    description: "Protect systems, hack ethically, and become a security expert.",
     description: "Learn to protect systems, hack ethically, and become a security expert.",
     colorClass: "text-track-cyber",
     bgClass: "bg-track-cyber",
