@@ -19,6 +19,7 @@ export interface Track {
   id: TrackId;
   name: string;
   emoji: string;
+  icon: string;
   tagline: string;
   description: string;
   colorClass: string;
