@@ -26,6 +26,7 @@ export interface Track {
   bgClass: string;
   borderClass: string;
   readyMessage: string;
+  buttonLabel: string;
 }
 
 export const tracks: Track[] = [
