@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { tracks } from "@/lib/trackData";
 import TrackCard from "@/components/TrackCard";
+import codedLogo from "@/assets/CODED_logo_navy_blue.png";
 
 const STORAGE_KEY = "coded-onboarding";
 
