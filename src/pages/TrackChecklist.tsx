@@ -71,7 +71,7 @@ export default function TrackChecklist() {
 
           <div className="mt-8 flex flex-col items-center gap-2">
             <button
-              onClick={() => { setShowReady(false); }}
+              onClick={() => { setShowReady(false); setCurrentStep(steps.length - 1); }}
               className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
             >
               ← Back to checklist
