@@ -41,7 +41,7 @@ export const tracks: Track[] = [
     bgClass: "bg-track-cyber",
     borderClass: "border-track-cyber",
     readyMessage: "Your security journey starts now.",
-    buttonLabel: "Cybersecurity Checklist",
+    buttonLabel: "CyS Checklist",
   },
   {
     id: "fullstack",
