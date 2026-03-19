@@ -31,7 +31,7 @@ export interface Track {
 export const tracks: Track[] = [
   {
     id: "cybersecurity",
-    name: "Cybersecurity Bootcamp",
+    name: "Cybersecurity Specialist",
     emoji: "🔐",
     icon: "cyber",
     tagline: "Defend. Detect. Dominate.",
@@ -43,7 +43,7 @@ export const tracks: Track[] = [
   },
   {
     id: "fullstack",
-    name: "Full Stack Bootcamp",
+    name: "Full-Stack Developer",
     emoji: "💻",
     icon: "fullstack",
     tagline: "Build. Ship. Scale.",
@@ -55,7 +55,7 @@ export const tracks: Track[] = [
   },
   {
     id: "datascience",
-    name: "Data Science Bootcamp",
+    name: "Data Scientist",
     emoji: "📊",
     icon: "datascience",
     tagline: "Analyze. Predict. Transform.",
