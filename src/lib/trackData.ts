@@ -36,7 +36,6 @@ export const tracks: Track[] = [
     icon: "cyber",
     tagline: "Defend. Detect. Dominate.",
     description: "Protect systems, hack ethically, and become a security expert.",
-    description: "Learn to protect systems, hack ethically, and become a security expert.",
     colorClass: "text-track-cyber",
     bgClass: "bg-track-cyber",
     borderClass: "border-track-cyber",
