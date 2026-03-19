@@ -19,6 +19,7 @@ export interface Track {
   id: TrackId;
   name: string;
   emoji: string;
+  icon: string;
   tagline: string;
   description: string;
   colorClass: string;
@@ -32,6 +33,7 @@ export const tracks: Track[] = [
     id: "cybersecurity",
     name: "Cybersecurity Bootcamp",
     emoji: "🔐",
+    icon: "cyber",
     tagline: "Defend. Detect. Dominate.",
     description: "Learn to protect systems, hack ethically, and become a security expert.",
     colorClass: "text-track-cyber",
@@ -43,6 +45,7 @@ export const tracks: Track[] = [
     id: "fullstack",
     name: "Full Stack Bootcamp",
     emoji: "💻",
+    icon: "fullstack",
     tagline: "Build. Ship. Scale.",
     description: "Master frontend, backend, and everything in between.",
     colorClass: "text-track-fullstack",
@@ -54,6 +57,7 @@ export const tracks: Track[] = [
     id: "datascience",
     name: "Data Science Bootcamp",
     emoji: "📊",
+    icon: "datascience",
     tagline: "Analyze. Predict. Transform.",
     description: "Turn raw data into powerful insights and intelligent models.",
     colorClass: "text-track-data",

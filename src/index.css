@@ -37,10 +37,10 @@
     --radius: 0.75rem;
 
     /* Track colors */
-    --track-cyber: 150 80% 40%;
-    --track-cyber-light: 150 60% 95%;
-    --track-fullstack: 220 80% 55%;
-    --track-fullstack-light: 220 60% 95%;
+    --track-cyber: 220 80% 55%;
+    --track-cyber-light: 220 60% 95%;
+    --track-fullstack: 145 65% 52%;
+    --track-fullstack-light: 145 60% 95%;
     --track-data: 270 70% 55%;
     --track-data-light: 270 60% 95%;
 

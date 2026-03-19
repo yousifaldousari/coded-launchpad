@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import type { Track } from "@/lib/trackData";
+import cyberIcon from "@/assets/Cyber_Icon.png";
+import fullstackIcon from "@/assets/Full_Stack_Icon.png";
+import datascienceIcon from "@/assets/Data_Science_Icon.png";
+
+const iconMap: Record<string, string> = {
+  cyber: cyberIcon,
+  fullstack: fullstackIcon,
+  datascience: datascienceIcon,
+};
 
 interface Props {
   track: Track;
@@ -16,13 +25,17 @@ export default function TrackCard({ track, index, hasProgress, onSelect }: Props
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-lg"
+      className={`group relative overflow-hidden rounded-2xl border-2 ${track.borderClass} bg-card shadow-sm transition-shadow hover:shadow-lg`}
     >
       <div className={`h-1.5 w-full ${track.bgClass}`} />
-      <div className="p-6">
-        <span className="text-4xl">{track.emoji}</span>
+      <div className="flex flex-col items-center p-6">
+        <img
+          src={iconMap[track.icon]}
+          alt={`${track.name} icon`}
+          className="h-16 w-16 object-contain"
+        />
         <h3 className="mt-3 font-display text-xl font-bold text-foreground">{track.name}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{track.description}</p>
+        <p className="mt-1 text-center text-sm text-muted-foreground">{track.description}</p>
         <button
           onClick={onSelect}
           className={`mt-5 flex w-full items-center justify-center gap-2 rounded-xl ${track.bgClass} px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
