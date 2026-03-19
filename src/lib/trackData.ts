@@ -44,7 +44,7 @@ export const tracks: Track[] = [
   },
   {
     id: "fullstack",
-    name: "Full-Stack Developer",
+    name: "Full-Stack & AI Bootcamp",
     emoji: "💻",
     icon: "fullstack",
     tagline: "Build. Ship. Scale.",
