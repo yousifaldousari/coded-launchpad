@@ -69,12 +69,20 @@ export default function TrackChecklist() {
             </p>
           </div>
 
-          <button
-            onClick={() => navigate("/")}
-            className="mt-8 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
-          >
-            Back to track selection
-          </button>
+          <div className="mt-8 flex flex-col items-center gap-2">
+            <button
+              onClick={() => { setShowReady(false); }}
+              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >
+              ← Back to checklist
+            </button>
+            <button
+              onClick={() => navigate("/")}
+              className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >
+              Back to track selection
+            </button>
+          </div>
         </motion.div>
       </div>
     );
