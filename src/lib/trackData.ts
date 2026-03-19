@@ -67,7 +67,7 @@ export const tracks: Track[] = [
     bgClass: "bg-track-data",
     borderClass: "border-track-data",
     readyMessage: "Let's turn data into insight.",
-    buttonLabel: "AI & Data Science Checklist",
+    buttonLabel: "DS Checklist",
   },
 ];
 
