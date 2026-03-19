@@ -41,7 +41,7 @@ export const tracks: Track[] = [
     bgClass: "bg-track-cyber",
     borderClass: "border-track-cyber",
     readyMessage: "Your security journey starts now.",
-    buttonLabel: "Cybersecurity Checklist",
+    buttonLabel: "CyS Checklist",
   },
   {
     id: "fullstack",
@@ -54,7 +54,7 @@ export const tracks: Track[] = [
     bgClass: "bg-track-fullstack",
     borderClass: "border-track-fullstack",
     readyMessage: "Time to build real systems.",
-    buttonLabel: "Full-Stack & AI Checklist",
+    buttonLabel: "FS Checklist",
   },
   {
     id: "datascience",
@@ -67,7 +67,7 @@ export const tracks: Track[] = [
     bgClass: "bg-track-data",
     borderClass: "border-track-data",
     readyMessage: "Let's turn data into insight.",
-    buttonLabel: "AI & Data Science Checklist",
+    buttonLabel: "DS Checklist",
   },
 ];
 
