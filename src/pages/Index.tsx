@@ -37,9 +37,27 @@ export default function Index() {
         <p className="mt-4 text-lg text-muted-foreground">
           Your journey starts here. Pick your track and let's get you ready.
         </p>
+        <a
+          href="https://coded.kw/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/30"
+        >
+          Visit CODED Academy Website
+          <ExternalLink className="h-4 w-4" />
+        </a>
       </motion.div>
 
-      <div className="mt-12 grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.4 }}
+        className="mt-14 mb-6 text-center font-display text-2xl font-bold text-foreground"
+      >
+        Choose Your Bootcamp Track
+      </motion.h2>
+
+      <div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
         {tracks.map((track, i) => (
           <TrackCard
             key={track.id}
@@ -50,6 +68,15 @@ export default function Index() {
           />
         ))}
       </div>
+
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.4 }}
+        className="mt-14 mb-6 text-center font-display text-2xl font-bold text-foreground"
+      >
+        Important Contacts
+      </motion.h2>
 
       {/* Contact Cards */}
       <motion.div
