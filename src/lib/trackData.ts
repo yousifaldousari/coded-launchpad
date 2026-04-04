@@ -150,10 +150,9 @@ const envSteps: Record<TrackId, Step> = {
     title: "Prepare Your Analytical Workspace",
     subtitle: "Set up your data science toolkit.",
     items: [
-      { id: "kaggle", label: "Create Kaggle account" },
-      { id: "colab", label: "Access Google Colab" },
-      { id: "notebook", label: "Open test notebook" },
-      { id: "colab-login", label: "Confirm login" },
+      { id: "chrome", label: "Download Chrome on your laptop", link: { url: "https://www.google.com/chrome/", text: "Download Chrome" } },
+      { id: "kaggle", label: "Create a Kaggle account", link: { url: "https://www.kaggle.com/", text: "Kaggle" } },
+      { id: "colab", label: "Access Google Colab", link: { url: "/track/datascience/colab-setup", text: "Colab Setup Guide" } },
     ],
   },
 };
