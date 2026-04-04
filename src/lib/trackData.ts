@@ -162,10 +162,11 @@ const step5: Step = {
   ],
   infoContent: {
     lines: [
-      "📶 WiFi Name: CODED_Campus",
-      "🔑 WiFi Password: Ask the team on day one",
+      "📶 WiFi Name: Students or Students2",
+      "🔑 WiFi Password: joincoded.com",
       "🎓 Keep your Education Number handy — you'll need it!",
     ],
+    copyable: { label: "WiFi Password", value: "joincoded.com" },
   },
 };
 
