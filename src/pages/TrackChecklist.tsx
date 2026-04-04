@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, PartyPopper } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, PartyPopper, Copy, Check } from "lucide-react";
 import confetti from "canvas-confetti";
 import type { TrackId } from "@/lib/trackData";
 import { getTrack, tracks } from "@/lib/trackData";
