@@ -5,6 +5,7 @@ export interface ChecklistItem {
   label: string;
   optional?: boolean;
   link?: { url: string; text: string };
+  note?: string;
 }
 
 export interface Step {
