@@ -10,6 +10,7 @@ interface Props {
   onToggle: (id: string) => void;
   accentBg: string;
   link?: { url: string; text: string };
+  note?: string;
 }
 
 export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link }: Props) {
