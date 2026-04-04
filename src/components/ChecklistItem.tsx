@@ -85,7 +85,7 @@ export default function ChecklistItem({ id, label, checked, optional, onToggle, 
         )}
       </div>
       {note && (
-        <p className="ml-9 text-xs text-muted-foreground italic">{note}</p>
+        <p className="ml-9 text-sm text-muted-foreground italic">{note}</p>
       )}
     </div>
   );
