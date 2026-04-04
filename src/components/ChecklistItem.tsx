@@ -1,3 +1,4 @@
+import type { MouseEvent, PointerEvent } from "react";
 import { motion } from "framer-motion";
 import { Check, ExternalLink } from "lucide-react";
 
@@ -12,7 +13,27 @@ interface Props {
 }
 
 export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link }: Props) {
-  const linkTarget = link && /discord\.(com|gg)/i.test(link.url) ? "_top" : "_blank";
+  const isDiscordLink = !!link && /discord\.(com|gg)/i.test(link.url);
+
+  const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.stopPropagation();
+
+    if (!link || !isDiscordLink) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const openedWindow = window.open(link.url, "_blank", "noopener,noreferrer");
+
+    if (!openedWindow) {
+      window.location.assign(link.url);
+    }
+  };
+
+  const handleLinkPointerDown = (event: PointerEvent<HTMLAnchorElement>) => {
+    event.stopPropagation();
+  };
 
   return (
     <div className="flex w-full items-center gap-2">
@@ -50,11 +71,11 @@ export default function ChecklistItem({ id, label, checked, optional, onToggle, 
       {link && (
         <a
           href={link.url}
-          target={linkTarget}
+          target="_blank"
           rel="noopener noreferrer"
           className={`relative z-10 flex shrink-0 items-center gap-1.5 rounded-lg ${accentBg} px-3 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90`}
-          onClick={(event) => event.stopPropagation()}
-          onPointerDown={(event) => event.stopPropagation()}
+          onClick={handleLinkClick}
+          onPointerDown={handleLinkPointerDown}
         >
           {link.text}
           <ExternalLink className="h-3 w-3" />
