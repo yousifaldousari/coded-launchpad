@@ -180,10 +180,13 @@ export default function TrackChecklist() {
             <p className="mt-1 text-muted-foreground">{step.subtitle}</p>
 
             {step.infoContent && (
-              <div className="mt-6 space-y-2 rounded-xl border border-border bg-card p-4">
+              <div className="mt-6 space-y-3 rounded-xl border border-border bg-card p-4">
                 {step.infoContent.lines.map((line, i) => (
                   <p key={i} className="text-sm text-foreground">{line}</p>
                 ))}
+                {step.infoContent.copyable && (
+                  <CopyButton label={step.infoContent.copyable.label} value={step.infoContent.copyable.value} accentBg={accentBg} />
+                )}
               </div>
             )}
 
