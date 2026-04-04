@@ -8,6 +8,7 @@ import TrackChecklist from "./pages/TrackChecklist.tsx";
 import CyberDeviceRequirements from "./pages/CyberDeviceRequirements.tsx";
 import FullStackDeviceRequirements from "./pages/FullStackDeviceRequirements.tsx";
 import FullStackGitSetup from "./pages/FullStackGitSetup.tsx";
+import DataScienceColabSetup from "./pages/DataScienceColabSetup.tsx";
 import DataScienceDeviceRequirements from "./pages/DataScienceDeviceRequirements.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
