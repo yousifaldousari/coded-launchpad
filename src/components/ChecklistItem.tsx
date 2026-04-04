@@ -1,4 +1,5 @@
 import type { MouseEvent, PointerEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, ExternalLink } from "lucide-react";
 
