@@ -26,6 +26,7 @@ const App = () => (
           <Route path="/track/fullstack/device-requirements" element={<FullStackDeviceRequirements />} />
           <Route path="/track/fullstack/git-setup" element={<FullStackGitSetup />} />
           <Route path="/track/datascience/device-requirements" element={<DataScienceDeviceRequirements />} />
+          <Route path="/track/datascience/colab-setup" element={<DataScienceColabSetup />} />
           <Route path="/track/:trackId" element={<TrackChecklist />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
