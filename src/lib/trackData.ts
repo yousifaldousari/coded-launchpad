@@ -5,6 +5,7 @@ export interface ChecklistItem {
   label: string;
   optional?: boolean;
   link?: { url: string; text: string };
+  note?: string;
 }
 
 export interface Step {
@@ -72,18 +73,29 @@ export const tracks: Track[] = [
   },
 ];
 
-const sharedSteps: Step[] = [
-  {
+const pictureNote = "We will not use this picture in any media, and will only be for the team to know you faster 😊";
+
+const pictureLinks: Record<TrackId, string> = {
+  cybersecurity: "https://airtable.com/appGSMF2eEC2s4abA/pagKwJxgkC1a2JebE/form",
+  fullstack: "https://airtable.com/appGSMF2eEC2s4abA/pagxHeida0bCbwok3/form",
+  datascience: "https://airtable.com/appGSMF2eEC2s4abA/paguOET0VHvKo4BJL/form",
+};
+
+function getStep1(trackId: TrackId): Step {
+  return {
     id: 1,
     title: "Confirm Your Spot",
     subtitle: "Lock in your commitment and make it official.",
     items: [
       { id: "enrollment", label: "Read & sign Enrollment Agreement" },
       { id: "device", label: "Confirm device meets requirements" },
-      { id: "picture", label: "Submit your picture" },
+      { id: "picture", label: "Submit your picture", link: { url: pictureLinks[trackId], text: "Submit Picture" }, note: pictureNote },
       { id: "edu-number", label: "Save CODED Education Number" },
     ],
-  },
+  };
+}
+
+const sharedStep2: Step =
   {
     id: 2,
     title: "Join the CODED System",
@@ -98,8 +110,7 @@ const sharedSteps: Step[] = [
       title: "Need help?",
       content: "Check the #onboarding channel on Discord for step-by-step video tutorials, or reach out to the CODED team directly.",
     },
-  },
-];
+  };
 
 const envSteps: Record<TrackId, Step> = {
   cybersecurity: {
@@ -171,7 +182,7 @@ const step5: Step = {
 };
 
 export function getStepsForTrack(trackId: TrackId): Step[] {
-  return [...sharedSteps, envSteps[trackId], step4, step5];
+  return [getStep1(trackId), sharedStep2, envSteps[trackId], step4, step5];
 }
 
 export function getTrack(trackId: TrackId): Track {

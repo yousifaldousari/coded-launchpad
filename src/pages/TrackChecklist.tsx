@@ -224,6 +224,7 @@ export default function TrackChecklist() {
                     onToggle={toggle}
                     accentBg={accentBgMap[safeTrackId]}
                     link={item.link}
+                    note={item.note}
                   />
                 </motion.div>
               ))}
