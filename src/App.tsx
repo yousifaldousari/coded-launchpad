@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import TrackChecklist from "./pages/TrackChecklist.tsx";
 import CyberDeviceRequirements from "./pages/CyberDeviceRequirements.tsx";
 import FullStackDeviceRequirements from "./pages/FullStackDeviceRequirements.tsx";
+import DataScienceDeviceRequirements from "./pages/DataScienceDeviceRequirements.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
