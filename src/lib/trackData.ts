@@ -13,7 +13,7 @@ export interface Step {
   subtitle: string;
   items: ChecklistItem[];
   helpSection?: { title: string; content: string };
-  infoContent?: { lines: string[] };
+  infoContent?: { lines: string[]; copyable?: { label: string; value: string } };
 }
 
 export interface Track {
@@ -162,10 +162,11 @@ const step5: Step = {
   ],
   infoContent: {
     lines: [
-      "📶 WiFi Name: CODED_Campus",
-      "🔑 WiFi Password: Ask the team on day one",
+      "📶 WiFi Name: Students or Students2",
+      "🔑 WiFi Password: joincoded.com",
       "🎓 Keep your Education Number handy — you'll need it!",
     ],
+    copyable: { label: "WiFi Password", value: "joincoded.com" },
   },
 };
 

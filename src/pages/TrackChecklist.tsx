@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, PartyPopper } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, PartyPopper, Copy, Check } from "lucide-react";
 import confetti from "canvas-confetti";
 import type { TrackId } from "@/lib/trackData";
 import { getTrack, tracks } from "@/lib/trackData";
@@ -34,6 +34,24 @@ function getSavedStep(trackId: TrackId, stepCount: number) {
   } catch {}
 
   return 0;
+}
+function CopyButton({ label, value, accentBg }: { label: string; value: string; accentBg: string }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(value).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+  return (
+    <button
+      onClick={handleCopy}
+      className={`flex items-center gap-2 rounded-lg ${accentBg} px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
+    >
+      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+      {copied ? "Copied!" : `Copy ${label}`}
+    </button>
+  );
 }
 
 export default function TrackChecklist() {
@@ -180,10 +198,13 @@ export default function TrackChecklist() {
             <p className="mt-1 text-muted-foreground">{step.subtitle}</p>
 
             {step.infoContent && (
-              <div className="mt-6 space-y-2 rounded-xl border border-border bg-card p-4">
+              <div className="mt-6 space-y-3 rounded-xl border border-border bg-card p-4">
                 {step.infoContent.lines.map((line, i) => (
                   <p key={i} className="text-sm text-foreground">{line}</p>
                 ))}
+                {step.infoContent.copyable && (
+                  <CopyButton label={step.infoContent.copyable.label} value={step.infoContent.copyable.value} accentBg={accentBgMap[safeTrackId]} />
+                )}
               </div>
             )}
 
