@@ -83,7 +83,7 @@ export default function Index() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.5 }}
-        className="mt-12 grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2"
+        className="grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2"
       >
         <a
           href="https://wa.me/96560791018"
