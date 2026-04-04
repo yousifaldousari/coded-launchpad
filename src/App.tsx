@@ -19,6 +19,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/track/:trackId" element={<TrackChecklist />} />
+          <Route path="/track/cybersecurity/device-requirements" element={<CyberDeviceRequirements />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
