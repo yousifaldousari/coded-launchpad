@@ -15,6 +15,8 @@ interface Props {
 }
 
 export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link, note }: Props) {
+  const navigate = useNavigate();
+  const isInternalLink = !!link && link.url.startsWith("/");
   const isDiscordLink = !!link && /discord\.(com|gg)/i.test(link.url);
 
   const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
