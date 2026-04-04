@@ -142,6 +142,7 @@ const envSteps: Record<TrackId, Step> = {
       { id: "git", label: "Download & Install Git on your laptop", link: { url: "/track/fullstack/git-setup", text: "Git Setup Guide" } },
       { id: "github", label: "Create GitHub account", link: { url: "https://github.com/join", text: "GitHub" } },
       { id: "github-local", label: "Connect GitHub locally" },
+      { id: "notion", label: "Signup to Notion", link: { url: "https://www.notion.so/login", text: "Notion" }, note: "Use CODED edu email you received from CODED Admission email, similar to (tXXXXX@coded.edu.kw)" },
     ],
   },
   datascience: {
