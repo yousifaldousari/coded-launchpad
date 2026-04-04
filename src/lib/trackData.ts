@@ -73,18 +73,29 @@ export const tracks: Track[] = [
   },
 ];
 
-const sharedSteps: Step[] = [
-  {
+const pictureNote = "We will not use this picture in any media, and will only be for the team to know you faster 😊";
+
+const pictureLinks: Record<TrackId, string> = {
+  cybersecurity: "https://airtable.com/appGSMF2eEC2s4abA/pagKwJxgkC1a2JebE/form",
+  fullstack: "https://airtable.com/appGSMF2eEC2s4abA/pagxHeida0bCbwok3/form",
+  datascience: "https://airtable.com/appGSMF2eEC2s4abA/paguOET0VHvKo4BJL/form",
+};
+
+function getStep1(trackId: TrackId): Step {
+  return {
     id: 1,
     title: "Confirm Your Spot",
     subtitle: "Lock in your commitment and make it official.",
     items: [
       { id: "enrollment", label: "Read & sign Enrollment Agreement" },
       { id: "device", label: "Confirm device meets requirements" },
-      { id: "picture", label: "Submit your picture" },
+      { id: "picture", label: "Submit your picture", link: { url: pictureLinks[trackId], text: "Submit Picture" }, note: pictureNote },
       { id: "edu-number", label: "Save CODED Education Number" },
     ],
-  },
+  };
+}
+
+const sharedStep2: Step =
   {
     id: 2,
     title: "Join the CODED System",
