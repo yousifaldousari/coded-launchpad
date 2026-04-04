@@ -88,7 +88,7 @@ function getStep1(trackId: TrackId): Step {
     subtitle: "Lock in your commitment and make it official.",
     items: [
       { id: "enrollment", label: "Read & sign Enrollment Agreement" },
-      { id: "device", label: "Confirm device meets requirements" },
+      { id: "device", label: "Confirm device meets requirements", link: { url: "/track/cybersecurity/device-requirements", text: "View Requirements" } },
       { id: "picture", label: "Submit your picture", link: { url: pictureLinks[trackId], text: "Submit Picture" }, note: pictureNote },
       { id: "edu-number", label: "Save CODED Education Number" },
     ],

@@ -1,4 +1,5 @@
 import type { MouseEvent, PointerEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Check, ExternalLink } from "lucide-react";
 
@@ -14,21 +15,27 @@ interface Props {
 }
 
 export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link, note }: Props) {
+  const navigate = useNavigate();
+  const isInternalLink = !!link && link.url.startsWith("/");
   const isDiscordLink = !!link && /discord\.(com|gg)/i.test(link.url);
 
   const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
     event.stopPropagation();
 
-    if (!link || !isDiscordLink) {
+    if (!link) return;
+
+    if (isInternalLink) {
+      event.preventDefault();
+      navigate(link.url);
       return;
     }
 
-    event.preventDefault();
-
-    const openedWindow = window.open(link.url, "_blank", "noopener,noreferrer");
-
-    if (!openedWindow) {
-      window.location.assign(link.url);
+    if (isDiscordLink) {
+      event.preventDefault();
+      const openedWindow = window.open(link.url, "_blank", "noopener,noreferrer");
+      if (!openedWindow) {
+        window.location.assign(link.url);
+      }
     }
   };
 
