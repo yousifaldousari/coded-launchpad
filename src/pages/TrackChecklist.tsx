@@ -35,6 +35,24 @@ function getSavedStep(trackId: TrackId, stepCount: number) {
 
   return 0;
 }
+function CopyButton({ label, value, accentBg }: { label: string; value: string; accentBg: string }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(value).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+  return (
+    <button
+      onClick={handleCopy}
+      className={`flex items-center gap-2 rounded-lg ${accentBg} px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
+    >
+      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+      {copied ? "Copied!" : `Copy ${label}`}
+    </button>
+  );
+}
 
 export default function TrackChecklist() {
   const { trackId } = useParams<{ trackId: string }>();
