@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { tracks } from "@/lib/trackData";
 import TrackCard from "@/components/TrackCard";
 import codedLogo from "@/assets/CODED_logo_navy_blue.png";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ExternalLink } from "lucide-react";
 
 const STORAGE_KEY = "coded-onboarding";
 
