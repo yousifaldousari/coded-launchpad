@@ -13,7 +13,7 @@ interface Props {
   note?: string;
 }
 
-export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link }: Props) {
+export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link, note }: Props) {
   const isDiscordLink = !!link && /discord\.(com|gg)/i.test(link.url);
 
   const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
