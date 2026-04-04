@@ -22,16 +22,20 @@ export default function ChecklistItem({ id, label, checked, optional, onToggle, 
   const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
     event.stopPropagation();
 
-    if (!link || !isDiscordLink) {
+    if (!link) return;
+
+    if (isInternalLink) {
+      event.preventDefault();
+      navigate(link.url);
       return;
     }
 
-    event.preventDefault();
-
-    const openedWindow = window.open(link.url, "_blank", "noopener,noreferrer");
-
-    if (!openedWindow) {
-      window.location.assign(link.url);
+    if (isDiscordLink) {
+      event.preventDefault();
+      const openedWindow = window.open(link.url, "_blank", "noopener,noreferrer");
+      if (!openedWindow) {
+        window.location.assign(link.url);
+      }
     }
   };
 
