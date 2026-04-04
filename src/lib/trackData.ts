@@ -13,7 +13,7 @@ export interface Step {
   subtitle: string;
   items: ChecklistItem[];
   helpSection?: { title: string; content: string };
-  infoContent?: { lines: string[] };
+  infoContent?: { lines: string[]; copyable?: { label: string; value: string } };
 }
 
 export interface Track {
