@@ -12,9 +12,12 @@ interface Props {
 }
 
 export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link }: Props) {
+  const linkTarget = link && /discord\.(com|gg)/i.test(link.url) ? "_top" : "_blank";
+
   return (
     <div className="flex w-full items-center gap-2">
       <motion.button
+        type="button"
         onClick={() => onToggle(id)}
         className="flex flex-1 items-center gap-3 rounded-lg border border-border bg-card p-4 text-left transition-colors hover:border-muted-foreground/30"
         whileTap={{ scale: 0.98 }}
@@ -43,18 +46,16 @@ export default function ChecklistItem({ id, label, checked, optional, onToggle, 
           <span className="ml-auto text-xs text-muted-foreground">Optional</span>
         )}
       </motion.button>
+
       {link && (
         <a
           href={link.url}
-          target={/discord\.(com|gg)/i.test(link.url) ? "_top" : "_blank"}
+          target={linkTarget}
           rel="noopener noreferrer"
           className={`relative z-10 flex shrink-0 items-center gap-1.5 rounded-lg ${accentBg} px-3 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90`}
-          onClick={(e) => e.stopPropagation()}
-          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(event) => event.stopPropagation()}
+          onPointerDown={(event) => event.stopPropagation()}
         >
-          {link.text}
-          <ExternalLink className="h-3 w-3" />
-        </a>
           {link.text}
           <ExternalLink className="h-3 w-3" />
         </a>
