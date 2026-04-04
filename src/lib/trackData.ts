@@ -4,6 +4,7 @@ export interface ChecklistItem {
   id: string;
   label: string;
   optional?: boolean;
+  link?: { url: string; text: string };
 }
 
 export interface Step {
@@ -88,8 +89,8 @@ const sharedSteps: Step[] = [
     title: "Join the CODED System",
     subtitle: "Get connected with your cohort and instructors.",
     items: [
-      { id: "discord-download", label: "Download Discord (Laptop + Mobile)" },
-      { id: "discord-join", label: "Join CODED Discord server" },
+      { id: "discord-download", label: "Download Discord (Laptop + Mobile)", link: { url: "https://discord.com/download", text: "Download Discord" } },
+      { id: "discord-join", label: "Join CODED Discord server", link: { url: "https://discord.gg/4RJPMEM6W5", text: "Join Server" } },
       { id: "discord-rename", label: "Rename to First + Last Name" },
       { id: "discord-pic", label: "Add profile picture", optional: true },
     ],
