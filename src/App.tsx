@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import TrackChecklist from "./pages/TrackChecklist.tsx";
 import CyberDeviceRequirements from "./pages/CyberDeviceRequirements.tsx";
 import FullStackDeviceRequirements from "./pages/FullStackDeviceRequirements.tsx";
+import FullStackGitSetup from "./pages/FullStackGitSetup.tsx";
 import DataScienceDeviceRequirements from "./pages/DataScienceDeviceRequirements.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/track/cybersecurity/device-requirements" element={<CyberDeviceRequirements />} />
           <Route path="/track/fullstack/device-requirements" element={<FullStackDeviceRequirements />} />
+          <Route path="/track/fullstack/git-setup" element={<FullStackGitSetup />} />
           <Route path="/track/datascience/device-requirements" element={<DataScienceDeviceRequirements />} />
           <Route path="/track/:trackId" element={<TrackChecklist />} />
           <Route path="*" element={<NotFound />} />
