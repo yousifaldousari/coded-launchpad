@@ -93,7 +93,7 @@ function getStep1(trackId: TrackId): Step {
     title: "Confirm Your Spot",
     subtitle: "Lock in your commitment and make it official.",
     items: [
-      { id: "enrollment", label: "Read & sign Enrollment Agreement" },
+      { id: "enrollment", label: "Read & sign Enrollment Agreement", link: { url: "https://app.coded.kw/sign-in", text: "CODED App" }, note: "The EA can be found in CODED App" },
       { id: "device", label: "Confirm device meets requirements", link: { url: deviceLinks[trackId], text: "View Requirements" } },
       { id: "picture", label: "Submit your picture", link: { url: pictureLinks[trackId], text: "Submit Picture" }, note: pictureNote },
       { id: "edu-number", label: "Save CODED Education Number" },
