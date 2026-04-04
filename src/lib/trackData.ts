@@ -110,8 +110,7 @@ const sharedStep2: Step =
       title: "Need help?",
       content: "Check the #onboarding channel on Discord for step-by-step video tutorials, or reach out to the CODED team directly.",
     },
-  },
-];
+  };
 
 const envSteps: Record<TrackId, Step> = {
   cybersecurity: {
