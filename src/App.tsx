@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import TrackChecklist from "./pages/TrackChecklist.tsx";
 import CyberDeviceRequirements from "./pages/CyberDeviceRequirements.tsx";
+import FullStackDeviceRequirements from "./pages/FullStackDeviceRequirements.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
