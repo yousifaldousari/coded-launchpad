@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { tracks } from "@/lib/trackData";
 import TrackCard from "@/components/TrackCard";
 import codedLogo from "@/assets/CODED_logo_navy_blue.png";
+import { MessageCircle } from "lucide-react";
 
 const STORAGE_KEY = "coded-onboarding";
 
@@ -50,10 +51,50 @@ export default function Index() {
         ))}
       </div>
 
+      {/* Contact Cards */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7, duration: 0.5 }}
+        className="mt-12 grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2"
+      >
+        <a
+          href="https://wa.me/96560791018"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 shadow-sm transition-all hover:shadow-md hover:border-primary/30"
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <MessageCircle className="h-5 w-5" />
+          </div>
+          <div>
+            <h4 className="font-display text-sm font-bold text-foreground">CODED Admission</h4>
+            <p className="mt-0.5 text-sm text-muted-foreground">+965 6079 1018</p>
+            <p className="mt-1 text-xs text-muted-foreground/70">Before enrolling to the bootcamp</p>
+          </div>
+        </a>
+
+        <a
+          href="https://wa.me/96555421902"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 shadow-sm transition-all hover:shadow-md hover:border-primary/30"
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <MessageCircle className="h-5 w-5" />
+          </div>
+          <div>
+            <h4 className="font-display text-sm font-bold text-foreground">CODED Education</h4>
+            <p className="mt-0.5 text-sm text-muted-foreground">+965 5542 1902</p>
+            <p className="mt-1 text-xs text-muted-foreground/70">During the bootcamp — for inquiries, contact your bootcamp lead</p>
+          </div>
+        </a>
+      </motion.div>
+
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
+        transition={{ delay: 0.9 }}
         className="mt-10 text-sm text-muted-foreground"
       >
         Not sure which track? Ask your advisor or explore all three.
