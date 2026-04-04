@@ -34,7 +34,7 @@ export default function TrackCard({ track, index, hasProgress, onSelect }: Props
           alt={`${track.name} icon`}
           className="h-16 w-16 object-contain"
         />
-        <h3 className="mt-3 font-display text-xl font-bold text-foreground whitespace-nowrap">{track.name}</h3>
+        <h3 className="mt-3 font-display text-lg font-bold text-foreground whitespace-nowrap">{track.name}</h3>
         <p className="mt-1 text-center text-sm text-muted-foreground">{track.description}</p>
         <button
           onClick={onSelect}
