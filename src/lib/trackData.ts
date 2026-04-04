@@ -107,9 +107,10 @@ const envSteps: Record<TrackId, Step> = {
     title: "Build Your Security Lab",
     subtitle: "Set up the tools you'll use to hack and defend.",
     items: [
-      { id: "virtualbox", label: "Install VirtualBox" },
-      { id: "extension-pack", label: "Install Extension Pack" },
-      { id: "browser", label: "Install Browser" },
+      { id: "virtualbox", label: "Download & Install VirtualBox 7.x", link: { url: "https://www.virtualbox.org/", text: "Get VirtualBox" } },
+      { id: "extension-pack", label: "Install VirtualBox Extension Pack", link: { url: "https://www.virtualbox.org/wiki/Downloads", text: "Extension Pack" } },
+      { id: "browser", label: "Install Chrome or Firefox", link: { url: "https://www.google.com/chrome/", text: "Chrome" } },
+      { id: "browser-firefox", label: "Or download Firefox instead", optional: true, link: { url: "https://www.mozilla.org/en-US/firefox/new/", text: "Firefox" } },
       { id: "zoom", label: "Install Zoom" },
       { id: "ctf", label: "Create CTF account" },
     ],
