@@ -22,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/track/cybersecurity/device-requirements" element={<CyberDeviceRequirements />} />
           <Route path="/track/fullstack/device-requirements" element={<FullStackDeviceRequirements />} />
+          <Route path="/track/datascience/device-requirements" element={<DataScienceDeviceRequirements />} />
           <Route path="/track/:trackId" element={<TrackChecklist />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

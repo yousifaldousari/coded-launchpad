@@ -84,7 +84,7 @@ const pictureLinks: Record<TrackId, string> = {
 const deviceLinks: Record<TrackId, string> = {
   cybersecurity: "/track/cybersecurity/device-requirements",
   fullstack: "/track/fullstack/device-requirements",
-  datascience: "/track/fullstack/device-requirements",
+  datascience: "/track/datascience/device-requirements",
 };
 
 function getStep1(trackId: TrackId): Step {
