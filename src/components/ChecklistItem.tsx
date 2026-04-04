@@ -44,17 +44,24 @@ export default function ChecklistItem({ id, label, checked, optional, onToggle, 
         )}
       </motion.button>
       {link && (
-        <button
-          type="button"
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`flex shrink-0 items-center gap-1.5 rounded-lg ${accentBg} px-3 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90`}
           onClick={(e) => {
             e.stopPropagation();
-            window.open(link.url, '_blank', 'noopener,noreferrer');
+            try {
+              if (window.self !== window.top && window.top) {
+                e.preventDefault();
+                window.top.location.href = link.url;
+              }
+            } catch {}
           }}
         >
           {link.text}
           <ExternalLink className="h-3 w-3" />
-        </button>
+        </a>
       )}
     </div>
   );
