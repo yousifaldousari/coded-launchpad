@@ -203,7 +203,7 @@ export default function TrackChecklist() {
                   <p key={i} className="text-sm text-foreground">{line}</p>
                 ))}
                 {step.infoContent.copyable && (
-                  <CopyButton label={step.infoContent.copyable.label} value={step.infoContent.copyable.value} accentBg={accentBg} />
+                  <CopyButton label={step.infoContent.copyable.label} value={step.infoContent.copyable.value} accentBg={accentBgMap[safeTrackId]} />
                 )}
               </div>
             )}
