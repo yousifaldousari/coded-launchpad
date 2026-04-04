@@ -81,6 +81,12 @@ const pictureLinks: Record<TrackId, string> = {
   datascience: "https://airtable.com/appGSMF2eEC2s4abA/paguOET0VHvKo4BJL/form",
 };
 
+const deviceLinks: Record<TrackId, string> = {
+  cybersecurity: "/track/cybersecurity/device-requirements",
+  fullstack: "/track/fullstack/device-requirements",
+  datascience: "/track/fullstack/device-requirements",
+};
+
 function getStep1(trackId: TrackId): Step {
   return {
     id: 1,
@@ -88,7 +94,7 @@ function getStep1(trackId: TrackId): Step {
     subtitle: "Lock in your commitment and make it official.",
     items: [
       { id: "enrollment", label: "Read & sign Enrollment Agreement" },
-      { id: "device", label: "Confirm device meets requirements", link: { url: "/track/cybersecurity/device-requirements", text: "View Requirements" } },
+      { id: "device", label: "Confirm device meets requirements", link: { url: deviceLinks[trackId], text: "View Requirements" } },
       { id: "picture", label: "Submit your picture", link: { url: pictureLinks[trackId], text: "Submit Picture" }, note: pictureNote },
       { id: "edu-number", label: "Save CODED Education Number" },
     ],
