@@ -5,6 +5,7 @@ export interface ChecklistItem {
   label: string;
   optional?: boolean;
   link?: { url: string; text: string };
+  links?: { url: string; text: string }[];
   note?: string;
 }
 
@@ -126,8 +127,7 @@ const envSteps: Record<TrackId, Step> = {
     items: [
       { id: "virtualbox", label: "Download & Install VirtualBox 7.x", link: { url: "https://www.virtualbox.org/", text: "Get VirtualBox" } },
       { id: "extension-pack", label: "Install VirtualBox Extension Pack", link: { url: "https://www.virtualbox.org/wiki/Downloads", text: "Extension Pack" } },
-      { id: "browser", label: "Install Chrome or Firefox", link: { url: "https://www.google.com/chrome/", text: "Chrome" } },
-      { id: "browser-firefox", label: "Or download Firefox instead", optional: true, link: { url: "https://www.mozilla.org/en-US/firefox/new/", text: "Firefox" } },
+      { id: "browser", label: "Install the browser engine", links: [{ url: "https://www.google.com/chrome/", text: "Google Chrome" }, { url: "https://www.mozilla.org/en-US/firefox/new/", text: "Firefox" }] },
       { id: "zoom", label: "Install Zoom", link: { url: "https://zoom.us/download", text: "Download Zoom" } },
       { id: "ctf", label: "Create CTF account (use your registered email)", link: { url: "https://ctfd.hack.kw", text: "Open CTF" } },
     ],
