@@ -11,6 +11,7 @@ interface Props {
   onToggle: (id: string) => void;
   accentBg: string;
   link?: { url: string; text: string };
+  links?: { url: string; text: string }[];
   note?: string;
 }
 
