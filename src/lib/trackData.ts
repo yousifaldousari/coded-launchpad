@@ -190,7 +190,7 @@ const step5: Step = {
 };
 
 export function getStepsForTrack(trackId: TrackId): Step[] {
-  return [getStep1(trackId), sharedStep2, envSteps[trackId], step4, step5];
+  return [getStep1(trackId), sharedStep2, envSteps[trackId], getStep4(trackId), step5];
 }
 
 export function getTrack(trackId: TrackId): Track {
