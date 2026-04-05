@@ -165,8 +165,6 @@ function getStep4(trackId: TrackId): Step {
     items: [
       { id: "eval-metrics", label: "Review evaluation metrics", link: { url: `/track/${trackId}/evaluation-metrics`, text: "Evaluation Metrics" } },
       { id: "presence-guide", label: "Read trainee presence guide", link: { url: `/track/${trackId}/presence-guide`, text: "Presence Guide" } },
-      { id: "attendance", label: "Understand attendance policy" },
-      { id: "performance", label: "Know how performance is measured" },
     ],
   };
 }
