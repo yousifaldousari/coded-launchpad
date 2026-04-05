@@ -32,10 +32,7 @@ export default function ChecklistItem({ id, label, checked, optional, onToggle, 
 
     if (isDiscordLink) {
       event.preventDefault();
-      const openedWindow = window.open(link.url, "_blank", "noopener,noreferrer");
-      if (!openedWindow) {
-        window.location.assign(link.url);
-      }
+      window.open(link.url, "_blank", "noopener,noreferrer");
     }
   };
 
