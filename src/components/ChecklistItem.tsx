@@ -15,25 +15,26 @@ interface Props {
   note?: string;
 }
 
-export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link, note }: Props) {
+export default function ChecklistItem({ id, label, checked, optional, onToggle, accentBg, link, links, note }: Props) {
   const navigate = useNavigate();
-  const isInternalLink = !!link && link.url.startsWith("/");
-  const isDiscordLink = !!link && /discord\.(com|gg)/i.test(link.url);
 
-  const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>) => {
+  const allLinks = links ? links : link ? [link] : [];
+
+  const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>, linkItem: { url: string; text: string }) => {
     event.stopPropagation();
 
-    if (!link) return;
+    const isInternal = linkItem.url.startsWith("/");
+    const isDiscord = /discord\.(com|gg)/i.test(linkItem.url);
 
-    if (isInternalLink) {
+    if (isInternal) {
       event.preventDefault();
-      navigate(link.url);
+      navigate(linkItem.url);
       return;
     }
 
-    if (isDiscordLink) {
+    if (isDiscord) {
       event.preventDefault();
-      window.open(link.url, "_blank", "noopener,noreferrer");
+      window.open(linkItem.url, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -75,19 +76,20 @@ export default function ChecklistItem({ id, label, checked, optional, onToggle, 
           )}
         </motion.button>
 
-        {link && (
+        {allLinks.map((linkItem, i) => (
           <a
-            href={link.url}
+            key={i}
+            href={linkItem.url}
             target="_blank"
             rel="noopener noreferrer"
             className={`relative z-10 flex shrink-0 items-center gap-1.5 rounded-lg ${accentBg} px-3 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90`}
-            onClick={handleLinkClick}
+            onClick={(e) => handleLinkClick(e, linkItem)}
             onPointerDown={handleLinkPointerDown}
           >
-            {link.text}
+            {linkItem.text}
             <ExternalLink className="h-3 w-3" />
           </a>
-        )}
+        ))}
       </div>
       {note && (
         <p className="ml-9 text-muted-foreground italic text-base">{note}</p>
