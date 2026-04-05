@@ -30,6 +30,7 @@ const App = () => (
           <Route path="/track/datascience/device-requirements" element={<DataScienceDeviceRequirements />} />
           <Route path="/track/datascience/colab-setup" element={<DataScienceColabSetup />} />
           <Route path="/track/:trackId/presence-guide" element={<TraineePresenceGuide />} />
+          <Route path="/track/:trackId/evaluation-metrics" element={<TraineeEvaluationMetrics />} />
           <Route path="/track/:trackId" element={<TrackChecklist />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
