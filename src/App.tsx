@@ -10,6 +10,7 @@ import FullStackDeviceRequirements from "./pages/FullStackDeviceRequirements.tsx
 import FullStackGitSetup from "./pages/FullStackGitSetup.tsx";
 import DataScienceColabSetup from "./pages/DataScienceColabSetup.tsx";
 import DataScienceDeviceRequirements from "./pages/DataScienceDeviceRequirements.tsx";
+import TraineePresenceGuide from "./pages/TraineePresenceGuide.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/track/fullstack/git-setup" element={<FullStackGitSetup />} />
           <Route path="/track/datascience/device-requirements" element={<DataScienceDeviceRequirements />} />
           <Route path="/track/datascience/colab-setup" element={<DataScienceColabSetup />} />
+          <Route path="/track/:trackId/presence-guide" element={<TraineePresenceGuide />} />
           <Route path="/track/:trackId" element={<TrackChecklist />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

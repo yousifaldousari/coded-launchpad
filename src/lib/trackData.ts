@@ -157,17 +157,19 @@ const envSteps: Record<TrackId, Step> = {
   },
 };
 
-const step4: Step = {
-  id: 4,
-  title: "Understand How This Bootcamp Works",
-  subtitle: "Know the rules of the game before it begins.",
-  items: [
-    { id: "eval-metrics", label: "Review evaluation metrics" },
-    { id: "presence-guide", label: "Read trainee presence guide" },
-    { id: "attendance", label: "Understand attendance policy" },
-    { id: "performance", label: "Know how performance is measured" },
-  ],
-};
+function getStep4(trackId: TrackId): Step {
+  return {
+    id: 4,
+    title: "Understand How This Bootcamp Works",
+    subtitle: "Know the rules of the game before it begins.",
+    items: [
+      { id: "eval-metrics", label: "Review evaluation metrics" },
+      { id: "presence-guide", label: "Read trainee presence guide", link: { url: `/track/${trackId}/presence-guide`, text: "Presence Guide" } },
+      { id: "attendance", label: "Understand attendance policy" },
+      { id: "performance", label: "Know how performance is measured" },
+    ],
+  };
+}
 
 const step5: Step = {
   id: 5,
@@ -188,7 +190,7 @@ const step5: Step = {
 };
 
 export function getStepsForTrack(trackId: TrackId): Step[] {
-  return [getStep1(trackId), sharedStep2, envSteps[trackId], step4, step5];
+  return [getStep1(trackId), sharedStep2, envSteps[trackId], getStep4(trackId), step5];
 }
 
 export function getTrack(trackId: TrackId): Track {
