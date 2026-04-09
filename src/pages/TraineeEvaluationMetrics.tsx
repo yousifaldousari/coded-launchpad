@@ -216,12 +216,14 @@ const trackSections: Record<string, Section[]> = {
   cybersecurity: cyberSections,
   fullstack: fullstackSections,
   datascience: datascienceSections,
+  aiappdev: fullstackSections,
 };
 
 const trackTitles: Record<string, string> = {
   cybersecurity: "Cybersecurity Trainee Evaluation Metrics",
   fullstack: "Fullstack Trainee Evaluation Metrics",
   datascience: "Data Science Trainee Evaluation Metrics",
+  aiappdev: "AI App Developer Trainee Evaluation Metrics",
 };
 
 export default function TraineeEvaluationMetrics() {
