@@ -1,4 +1,4 @@
-export type TrackId = "cybersecurity" | "fullstack" | "datascience";
+export type TrackId = "cybersecurity" | "fullstack" | "datascience" | "aiappdev";
 
 export interface ChecklistItem {
   id: string;
@@ -72,6 +72,19 @@ export const tracks: Track[] = [
     readyMessage: "Let's turn data into insight.",
     buttonLabel: "DS Checklist",
   },
+  {
+    id: "aiappdev",
+    name: "AI App Developer Bootcamp",
+    emoji: "✨",
+    icon: "aiappdev",
+    tagline: "Build. Automate. Innovate.",
+    description: "Create intelligent applications powered by AI and automation.",
+    colorClass: "text-track-aad",
+    bgClass: "bg-track-aad",
+    borderClass: "border-track-aad",
+    readyMessage: "Time to build the future with AI.",
+    buttonLabel: "AAD Checklist",
+  },
 ];
 
 const pictureNote = "We will not use this picture in any media, and will only be for the team to know you faster 😊";
@@ -80,12 +93,14 @@ const pictureLinks: Record<TrackId, string> = {
   cybersecurity: "https://airtable.com/appGSMF2eEC2s4abA/pagKwJxgkC1a2JebE/form",
   fullstack: "https://airtable.com/appGSMF2eEC2s4abA/pagxHeida0bCbwok3/form",
   datascience: "https://airtable.com/appGSMF2eEC2s4abA/paguOET0VHvKo4BJL/form",
+  aiappdev: "https://airtable.com/appGSMF2eEC2s4abA/pagxHeida0bCbwok3/form",
 };
 
 const deviceLinks: Record<TrackId, string> = {
   cybersecurity: "/track/cybersecurity/device-requirements",
   fullstack: "/track/fullstack/device-requirements",
   datascience: "/track/datascience/device-requirements",
+  aiappdev: "/track/fullstack/device-requirements",
 };
 
 function getStep1(trackId: TrackId): Step {
