@@ -4,11 +4,13 @@ import type { Track } from "@/lib/trackData";
 import cyberIcon from "@/assets/Cyber_Icon.png";
 import fullstackIcon from "@/assets/Full_Stack_Icon.png";
 import datascienceIcon from "@/assets/Data_Science_Icon.png";
+import aiappdevIcon from "@/assets/AI_App_Dev_Icon.png";
 
 const iconMap: Record<string, string> = {
   cyber: cyberIcon,
   fullstack: fullstackIcon,
   datascience: datascienceIcon,
+  aiappdev: aiappdevIcon,
 };
 
 interface Props {

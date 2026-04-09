@@ -170,6 +170,19 @@ const envSteps: Record<TrackId, Step> = {
       { id: "colab", label: "Access Google Colab", link: { url: "/track/datascience/colab-setup", text: "Colab Setup Guide" } },
     ],
   },
+  aiappdev: {
+    id: 3,
+    title: "Set Up Your AI Development Environment",
+    subtitle: "Get the tools you need to build AI-powered apps.",
+    items: [
+      { id: "chrome", label: "Download Chrome on your laptop", link: { url: "https://www.google.com/chrome/", text: "Download Chrome" } },
+      { id: "cursor", label: "Install Cursor", link: { url: "https://cursor.com/download", text: "Download Cursor" } },
+      { id: "git", label: "Download & Install Git on your laptop", link: { url: "/track/fullstack/git-setup", text: "Git Setup Guide" } },
+      { id: "github", label: "Create GitHub account", link: { url: "https://github.com/join", text: "GitHub" } },
+      { id: "github-local", label: "Connect GitHub locally" },
+      { id: "notion", label: "Signup to Notion", link: { url: "https://www.notion.so/login", text: "Notion" }, note: "Use CODED edu email you received from CODED Admission email, similar to (tXXXXX@coded.edu.kw)" },
+    ],
+  },
 };
 
 function getStep4(trackId: TrackId): Step {

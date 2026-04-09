@@ -12,12 +12,14 @@ const trackClassMap: Record<TrackId, string> = {
   cybersecurity: "track-cyber",
   fullstack: "track-fullstack",
   datascience: "track-data",
+  aiappdev: "track-aad",
 };
 
 const accentBgMap: Record<TrackId, string> = {
   cybersecurity: "bg-track-cyber",
   fullstack: "bg-track-fullstack",
   datascience: "bg-track-data",
+  aiappdev: "bg-track-aad",
 };
 
 const STEP_STORAGE_KEY = "coded-onboarding-step";
