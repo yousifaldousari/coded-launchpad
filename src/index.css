@@ -43,6 +43,8 @@
     --track-fullstack-light: 145 60% 95%;
     --track-data: 270 70% 55%;
     --track-data-light: 270 60% 95%;
+    --track-aad: 178 100% 36%;
+    --track-aad-light: 178 60% 95%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -82,5 +84,9 @@
   .track-data {
     --track-accent: var(--track-data);
     --track-accent-light: var(--track-data-light);
+  }
+  .track-aad {
+    --track-accent: var(--track-aad);
+    --track-accent-light: var(--track-aad-light);
   }
 }

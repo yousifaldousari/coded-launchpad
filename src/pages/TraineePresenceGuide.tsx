@@ -7,12 +7,14 @@ const trackBadge: Record<string, { bg: string; emoji: string; name: string }> = 
   cybersecurity: { bg: "bg-track-cyber", emoji: "🔐", name: "Cybersecurity Bootcamp" },
   fullstack: { bg: "bg-track-fullstack", emoji: "💻", name: "Full-Stack & AI Bootcamp" },
   datascience: { bg: "bg-track-data", emoji: "📊", name: "AI & Data Science Bootcamp" },
+  aiappdev: { bg: "bg-track-aad", emoji: "✨", name: "AI App Developer Bootcamp" },
 };
 
 const accentMap: Record<string, { text: string; bg10: string; border: string }> = {
   cybersecurity: { text: "text-track-cyber", bg10: "bg-track-cyber/10", border: "border-track-cyber/30" },
   fullstack: { text: "text-track-fullstack", bg10: "bg-track-fullstack/10", border: "border-track-fullstack/30" },
   datascience: { text: "text-track-data", bg10: "bg-track-data/10", border: "border-track-data/30" },
+  aiappdev: { text: "text-track-aad", bg10: "bg-track-aad/10", border: "border-track-aad/30" },
 };
 
 interface Section {

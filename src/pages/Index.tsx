@@ -57,7 +57,7 @@ export default function Index() {
         Choose Your Bootcamp Track
       </motion.h2>
 
-      <div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {tracks.map((track, i) => (
           <TrackCard
             key={track.id}

@@ -68,6 +68,8 @@ export default {
           "fullstack-light": "hsl(var(--track-fullstack-light))",
           data: "hsl(var(--track-data))",
           "data-light": "hsl(var(--track-data-light))",
+          aad: "hsl(var(--track-aad))",
+          "aad-light": "hsl(var(--track-aad-light))",
         },
       },
       borderRadius: {

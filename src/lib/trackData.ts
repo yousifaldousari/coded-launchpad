@@ -1,4 +1,4 @@
-export type TrackId = "cybersecurity" | "fullstack" | "datascience";
+export type TrackId = "cybersecurity" | "fullstack" | "datascience" | "aiappdev";
 
 export interface ChecklistItem {
   id: string;
@@ -72,6 +72,19 @@ export const tracks: Track[] = [
     readyMessage: "Let's turn data into insight.",
     buttonLabel: "DS Checklist",
   },
+  {
+    id: "aiappdev",
+    name: "AI App Developer Bootcamp",
+    emoji: "✨",
+    icon: "aiappdev",
+    tagline: "Build. Automate. Innovate.",
+    description: "Create intelligent applications powered by AI and automation.",
+    colorClass: "text-track-aad",
+    bgClass: "bg-track-aad",
+    borderClass: "border-track-aad",
+    readyMessage: "Time to build the future with AI.",
+    buttonLabel: "AAD Checklist",
+  },
 ];
 
 const pictureNote = "We will not use this picture in any media, and will only be for the team to know you faster 😊";
@@ -80,12 +93,14 @@ const pictureLinks: Record<TrackId, string> = {
   cybersecurity: "https://airtable.com/appGSMF2eEC2s4abA/pagKwJxgkC1a2JebE/form",
   fullstack: "https://airtable.com/appGSMF2eEC2s4abA/pagxHeida0bCbwok3/form",
   datascience: "https://airtable.com/appGSMF2eEC2s4abA/paguOET0VHvKo4BJL/form",
+  aiappdev: "https://airtable.com/appGSMF2eEC2s4abA/pagxHeida0bCbwok3/form",
 };
 
 const deviceLinks: Record<TrackId, string> = {
   cybersecurity: "/track/cybersecurity/device-requirements",
   fullstack: "/track/fullstack/device-requirements",
   datascience: "/track/datascience/device-requirements",
+  aiappdev: "/track/fullstack/device-requirements",
 };
 
 function getStep1(trackId: TrackId): Step {
@@ -153,6 +168,19 @@ const envSteps: Record<TrackId, Step> = {
       { id: "chrome", label: "Download Chrome on your laptop", link: { url: "https://www.google.com/chrome/", text: "Download Chrome" } },
       { id: "kaggle", label: "Create a Kaggle account", link: { url: "https://www.kaggle.com/", text: "Kaggle" } },
       { id: "colab", label: "Access Google Colab", link: { url: "/track/datascience/colab-setup", text: "Colab Setup Guide" } },
+    ],
+  },
+  aiappdev: {
+    id: 3,
+    title: "Set Up Your AI Development Environment",
+    subtitle: "Get the tools you need to build AI-powered apps.",
+    items: [
+      { id: "chrome", label: "Download Chrome on your laptop", link: { url: "https://www.google.com/chrome/", text: "Download Chrome" } },
+      { id: "cursor", label: "Install Cursor", link: { url: "https://cursor.com/download", text: "Download Cursor" } },
+      { id: "git", label: "Download & Install Git on your laptop", link: { url: "/track/fullstack/git-setup", text: "Git Setup Guide" } },
+      { id: "github", label: "Create GitHub account", link: { url: "https://github.com/join", text: "GitHub" } },
+      { id: "github-local", label: "Connect GitHub locally" },
+      { id: "notion", label: "Signup to Notion", link: { url: "https://www.notion.so/login", text: "Notion" }, note: "Use CODED edu email you received from CODED Admission email, similar to (tXXXXX@coded.edu.kw)" },
     ],
   },
 };
