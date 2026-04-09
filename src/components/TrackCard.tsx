@@ -40,7 +40,7 @@ export default function TrackCard({ track, index, hasProgress, onSelect }: Props
         <p className="mt-1 text-center text-sm text-muted-foreground">{track.description}</p>
         <button
           onClick={onSelect}
-          className={`mt-5 flex w-full items-center justify-center gap-2 rounded-xl ${track.bgClass} px-4 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90`}
+          className={`mt-5 flex w-full items-center justify-center gap-2 rounded-xl ${track.bgClass} px-4 py-3 text-sm font-semibold text-white whitespace-nowrap transition-opacity hover:opacity-90`}
         >
           {hasProgress ? "Continue Setup" : track.buttonLabel}
           <ArrowRight className="h-4 w-4" />
