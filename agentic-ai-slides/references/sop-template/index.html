@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOP Template · Agentic AI Bootcamp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --teal: #0C4652; --navy: #14243F; --lime: #C4EB50; --lime-soft: #D9ED9F; --paper: #F8F7F3; --line: #E4E2DA; --muted: #5B6573; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; background: var(--paper); color: var(--navy); }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  .brand { font-size: 13px; font-weight: 600; color: var(--teal); letter-spacing: .02em; }
+  .pill { display: inline-block; margin-top: 20px; background: var(--teal); color: var(--lime); font-weight: 600; font-size: 13px; padding: 6px 14px; border-radius: 999px; }
+  h1 { font-size: 36px; line-height: 1.1; color: var(--teal); margin: 14px 0 10px; }
+  .lead { font-size: 16px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; }
+  .steps { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; font-size: 15px; line-height: 1.6; }
+  .steps ol { margin: 0; padding-left: 20px; }
+  .bar { display: flex; justify-content: space-between; align-items: center; margin: 28px 0 10px; gap: 12px; }
+  .bar h2 { font-size: 18px; margin: 0; }
+  button { font: inherit; font-size: 14px; font-weight: 600; background: var(--lime); color: var(--navy); border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; }
+  button:hover { background: #ACD531; }
+  .tpl { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .part { display: flex; gap: 14px; padding: 16px 20px; border-top: 1px solid var(--line); }
+  .part:first-child { border-top: 0; }
+  .num { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--lime-soft); color: var(--teal); font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+  .part h3 { margin: 3px 0 0; font-size: 16px; }
+  .part p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+  .note { margin-top: 20px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">CODED · Agentic AI Bootcamp</div>
+  <span class="pill">Week 2 · S04 · Wed, Oct 28</span>
+  <h1>SOP Template</h1>
+  <p class="lead">An SOP tells your agent how one job is done, step by step. Every SOP has the same 7 parts.</p>
+
+  <div class="steps">
+    <ol>
+      <li>In Notion, open Finance's row in the AI Team database.</li>
+      <li>Add a new page inside it, named after the job (for example, "Read a supplier invoice").</li>
+      <li>Copy the template below into that page, then fill in each part.</li>
+      <li>Give Finance the link to the page.</li>
+    </ol>
+  </div>
+
+  <div class="bar">
+    <h2>The 7 parts</h2>
+    <button id="copy" type="button">Copy template</button>
+  </div>
+
+  <div class="tpl">
+    <div class="part"><div class="num">1</div><div><h3>When</h3></div></div>
+    <div class="part"><div class="num">2</div><div><h3>Where</h3><p>Notion links and property names.</p></div></div>
+    <div class="part"><div class="num">3</div><div><h3>Steps</h3></div></div>
+    <div class="part"><div class="num">4</div><div><h3>Rules</h3></div></div>
+    <div class="part"><div class="num">5</div><div><h3>Log</h3></div></div>
+    <div class="part"><div class="num">6</div><div><h3>Done when</h3></div></div>
+    <div class="part"><div class="num">7</div><div><h3>Example</h3></div></div>
+  </div>
+
+  <p class="note">Stuck on any step? Ask in the CODED app before S05.</p>
+</main>
+<script>
+  const tpl = "## When\n\n## Where\nNotion links and property names.\n\n## Steps\n\n## Rules\n\n## Log\n\n## Done when\n\n## Example\n";
+  const btn = document.getElementById('copy');
+  btn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(tpl); btn.textContent = 'Copied'; }
+    catch (e) {
+      const ta = document.createElement('textarea'); ta.value = tpl; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); btn.textContent = 'Copied'; } catch (e2) { btn.textContent = 'Copy failed'; }
+      ta.remove();
+    }
+    setTimeout(() => { btn.textContent = 'Copy template'; }, 2000);
+  });
+</script>
+</body>
+</html>
